@@ -27,12 +27,10 @@ class CreateColumns(BaseEstimator, TransformerMixin):
         data = X.copy()            
         
         cursadas = 0
-        i = 0
                 
         for line in data.itertuples():
                         
-            cursadas = 0
-            print(line)            
+            cursadas = 0            
             
             if ((data.iat[line[0],4]== 0.0) & (data.iat[line[0],0]> 0)) | (data.iat[line[0],4]> 0.0):                                
                 cursadas += 1            
@@ -48,7 +46,5 @@ class CreateColumns(BaseEstimator, TransformerMixin):
             
             if (cursadas>0):                                                    
                 data.iat[line[0],8] = ( data.iat[line[0],4] + data.iat[line[0],5] + data.iat[line[0],6] + data.iat[line[0],7] ) / cursadas                 
-                print(data.iat[line[0],8])
-                        
                 
         return data    
