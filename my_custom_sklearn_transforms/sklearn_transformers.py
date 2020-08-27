@@ -24,7 +24,7 @@ class CreateColumns(BaseEstimator, TransformerMixin):
     
     def transform(self, X):
         
-        data = X.copy()            
+        data = pd.DataFrame.from_records( X.copy() )            
         
         cursadas = 0
                 
