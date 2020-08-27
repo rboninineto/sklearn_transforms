@@ -28,7 +28,7 @@ class CreateColumns(BaseEstimator, TransformerMixin):
         
         cursadas = 0
                 
-        for index, row in data.iterrows():
+        for index, row in X.iterrows():
                         
             cursadas = 0                   
             
