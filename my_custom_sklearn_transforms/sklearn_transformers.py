@@ -28,23 +28,23 @@ class CreateColumns(BaseEstimator, TransformerMixin):
         
         cursadas = 0
                 
-        for line in data.itertuples():
+        for index, row in data.iterrows():
                         
-            cursadas = 0            
+            cursadas = 0                   
             
-            if ((data.iat[line[0],4]== 0.0) & (data.iat[line[0],0]> 0)) | (data.iat[line[0],4]> 0.0):                                
+            if ((data.iat[index,4]== 0.0) & (data.iat[index,0]> 0)) | (data.iat[index,4]> 0.0):
                 cursadas += 1            
         
-            if ((data.iat[line[0],5]== 0.0) & (data.iat[line[0],1]> 0 )) | (data.iat[line[0],5]> 0.0):
+            if ((data.iat[index,5]== 0.0) & (data.iat[index,1]> 0)) | (data.iat[index,5]> 0.0):
                 cursadas += 1
-                
-            if ((data.iat[line[0],6]== 0.0) & (data.iat[line[0],2]> 0 )) | (data.iat[line[0],6]> 0.0):
+                            
+            if ((data.iat[index,6]== 0.0) & (data.iat[index,2]> 0)) | (data.iat[index,6]> 0.0):
                 cursadas += 1
-                
-            if ((data.iat[line[0],7]== 0.0) & (data.iat[line[0],3]> 0 )) | (data.iat[line[0],7]> 0.0):
+                            
+            if ((data.iat[index,7]== 0.0) & (data.iat[index,3]> 0)) | (data.iat[index,7]> 0.0):
                 cursadas += 1                            
             
-            if (cursadas>0):                                                    
-                data.iat[line[0],8] = ( data.iat[line[0],4] + data.iat[line[0],5] + data.iat[line[0],6] + data.iat[line[0],7] ) / cursadas                 
+            if (cursadas>0):                                                                    
+                data.iat[index,8] = ( data.iat[index,4] + data.iat[index,5] + data.iat[index,6] + data.iat[index,7] ) / cursadas
                 
         return data    
